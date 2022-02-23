@@ -19,7 +19,7 @@ export const createExpressSession = (config: Config) => session({
     resave: false,
     store: new TypeormStore({
         cleanupLimit: 2,
-        ttl: 86400
+        ttl: oneHour
     }).connect(getConnection('app').getRepository(Session)),
     cookie: { 
         httpOnly: true,
@@ -31,7 +31,6 @@ export const createExpressSession = (config: Config) => session({
 
 passport.use(new BasicStrategy(async (email, password, done) => {
     try {
-        console.log(email, password)
         const user = await userRepository.findByEmail(email)
 
         const isValid = await argon2.verify(user.password, password)

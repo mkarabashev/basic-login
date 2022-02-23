@@ -15,7 +15,6 @@ const RegisterForm: React.FC = () => {
   const [outcome, setOutcome] = useState({
     message: '',
     hasError: false,
-    submitted: false,
   })
 
   const handleChange = (e: any) => {
@@ -36,7 +35,6 @@ const RegisterForm: React.FC = () => {
         setOutcome({
           hasError: true,
           message: e.message,
-          submitted: false,
         })
       })
   }
@@ -45,7 +43,6 @@ const RegisterForm: React.FC = () => {
     e.preventDefault()
     setOutcome({
       hasError: false,
-      submitted: false,
       message: '',
     })
   }
