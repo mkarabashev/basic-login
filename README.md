@@ -7,9 +7,11 @@
 2. `yarn`
 3. `yarn build`
 4. `make up`
-5. `yarn start`
+5. `cp .env.example .env`
+6. `yarn start`
 
 ## Client
 1. `cd packages/client`
 2. `yarn`
-3. `yarn start`
+3. `cp .env.example .env`
+4. `yarn start`
