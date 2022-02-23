@@ -15,6 +15,7 @@ interface EnvVariables {
     DB_USER: string
     DB_PASSWORD: string
     DB_PORT: number
+    DB_HOST: string
 }
 
 dotenv.config()
@@ -32,6 +33,7 @@ const envSchema = joi
         DB_USER: joi.string().required(),
         DB_PASSWORD: joi.string().required(),
         DB_PORT: joi.number().positive().required(),
+        DB_HOST: joi.string().required(),
     })
     .unknown()
 
@@ -58,6 +60,7 @@ export const config = {
         port: envVariables.DB_PORT,
         user: envVariables.DB_USER,
         password: envVariables.DB_PASSWORD,
+        host: envVariables.DB_HOST,
     }
 } as const
 

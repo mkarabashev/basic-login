@@ -19,7 +19,7 @@ const RegisterPage: React.FC = () => {
         </Row>
         <Row>
           <Col>
-            <Link to='/'>
+            <Link to="/">
               <Button variant="link">Or log in</Button>
             </Link>
           </Col>

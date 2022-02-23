@@ -5,9 +5,9 @@ import { User } from './entities/User'
 
 export const initializeDB = async (config: Config): Promise<Connection> => {
     const connection = await createConnection({
-        name: "app",
-        type: "postgres",
-        host: "localhost",
+        name: 'app',
+        type: 'postgres',
+        host: config.db.host,
         port: config.db.port,
         username: config.db.user,
         password: config.db.password,

@@ -18,7 +18,7 @@ const LoginPage: React.FC = () => {
       </Row>
       <Row>
         <Col>
-          <Link to='/register'>
+          <Link to="/register">
             <Button variant="link">Or sign up</Button>
           </Link>
         </Col>
