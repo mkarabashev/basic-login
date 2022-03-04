@@ -23,6 +23,7 @@ export const createExpressSession = (config: Config) => session({
     }).connect(getConnection('app').getRepository(Session)),
     cookie: { 
         httpOnly: true,
+        signed: true,
         maxAge: oneHour,
         sameSite: 'lax',
         secure: config.nodeEnv === NodeEnv.production,
@@ -69,7 +70,9 @@ export const createCsrfProtection = (config: Config) => csrf({
     cookie: {
         secure: config.nodeEnv === NodeEnv.production,
         httpOnly: true,
+        signed: true,
         maxAge: oneHour,
         sameSite: 'lax',
-    }
+    },
+    value: (req) => req.headers['x-csrf-token'] as string
 })

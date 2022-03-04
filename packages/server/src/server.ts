@@ -17,7 +17,7 @@ export const createApp = (config: Config): Express => {
     app.use(morgan('tiny'))
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({ extended: true }))
-    app.use(cookieParser())
+    app.use(cookieParser(config.server.secret))
     app.use(createExpressSession(config))
     app.use(passport.initialize())
     app.use(passport.session())
