@@ -68,6 +68,7 @@ export const authenticate: RequestHandler = (req, res, next) => {
 
 export const createCsrfProtection = (config: Config) => csrf({
     cookie: {
+        key: config.nodeEnv === NodeEnv.production ? '__Host-csrf' : '_csrf',
         secure: config.nodeEnv === NodeEnv.production,
         httpOnly: true,
         signed: true,
