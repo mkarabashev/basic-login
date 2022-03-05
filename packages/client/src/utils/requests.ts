@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { login } from './session'
 
 const apiUrl = process.env.REACT_APP_URL
 
@@ -50,12 +51,16 @@ export const authenticate = async (email: string, password: string): Promise<voi
         Authorization: `Basic ${btoa(`${email}:${password}`)}`
       }
     })
+
+    login()
   } catch (error) {
     throw new Error(parseError(error))
   }
 }
 
 export const logout = async (): Promise<void> => {
+  logout()
+  
   try {
     await axios.delete('v1/auth/logout', { data: {} })
   } catch (error) {
